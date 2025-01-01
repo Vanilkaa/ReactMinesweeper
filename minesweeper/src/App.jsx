@@ -183,7 +183,7 @@ function App() {
       <div className="status">{gameStatus == 0 || gameStatus == 1 ? '🙂': gameStatus == 2 ? '😎' : '💀'}</div>
       <div className="time">{totalSeconds}</div>
     </button>
-    <div className="board" style={{gridTemplateColumns : `repeat(${width}, 1fr)`}}>
+    <div className="board" style={{gridTemplateColumns : `repeat(${width}, 1fr)`}} onContextMenu={(e) => e.preventDefault()}>
       {Array.apply(null, Array(height*width)).map((num, index) => {
         return (
         <button
