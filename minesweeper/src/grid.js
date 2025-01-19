@@ -1,7 +1,7 @@
 export default function genGrid(start) {
 
   const height = 32;
-  const width = 19;
+  const width = 18;
 
   const neighbours = [
     -width - 1,
@@ -28,6 +28,14 @@ export default function genGrid(start) {
     let family = 0;
 
     for (let j = 0; j < 8; j++) {
+      if (i % width == 0) {
+        if (j == 0 || j == 3 || j == 5) continue;
+      }
+
+      if (i % width == width - 1) {
+        if (j == 2 || j == 4 || j == 7) continue;
+      }
+
       if (grid[i + neighbours[j]] == 9) family++;
     }
 
@@ -37,3 +45,13 @@ export default function genGrid(start) {
   return grid;
 }
 
+let a = genGrid(0);
+
+console.log(a.length)
+
+for (let i = 0; i < 32; i++) {
+  for (let j = 0; j < 18; j++) {
+    process.stdout.write(`${a[i * 18 + j]} `);
+  }
+  process.stdout.write('\n');
+}
