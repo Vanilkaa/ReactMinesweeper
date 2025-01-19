@@ -1,7 +1,7 @@
-export default function genGrid(start) {
 
-  const height = 32;
-  const width = 18;
+export default function genGrid(start, height, width, mineCount) {
+
+  if (mineCount > height * width - 9) throw new Error("Too many mines!");
 
   const neighbours = [
     -width - 1,
@@ -14,13 +14,27 @@ export default function genGrid(start) {
     width + 1,
   ]
 
-  let grid = [];
-
-  for (let i = 0; i < height * width; i++) {
-    grid.push(Math.random() > 0.2 ? 0 : 9);
+  function getRandInt(max) {
+    return Math.floor(Math.random() * max);
   }
 
-  grid[start] = 0;
+  function isNeighbour(cell, neighbour) {
+    for (let i = 0; i < 8; i++) {
+      if(cell == neighbour + neighbours[i]) return true;
+    }
+    return false;
+  }
+
+  let grid = new Array(width * height).fill(0);
+
+  for (let i = 0; i < mineCount; i++) {
+    while (true) {
+      const cell = getRandInt(width * height);
+      if (cell == start || grid[cell] == 9 || isNeighbour(cell, start)) continue;
+      grid[cell] = 9;
+      break;
+    }
+  }
 
   for (let i = 0; i < height * width; i++) {
     if (grid[i] == 9) continue;
@@ -45,13 +59,13 @@ export default function genGrid(start) {
   return grid;
 }
 
-let a = genGrid(0);
+/*
+let a = genGrid(61, 100, 100, 9991);
 
-console.log(a.length)
-
-for (let i = 0; i < 32; i++) {
-  for (let j = 0; j < 18; j++) {
-    process.stdout.write(`${a[i * 18 + j]} `);
+for (let i = 0; i < 100; i++) {
+  for (let j = 0; j < 100; j++) {
+    process.stdout.write(`${a[i * 100 + j]} `);
   }
   process.stdout.write('\n');
 }
+  */
