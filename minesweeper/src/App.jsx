@@ -54,8 +54,8 @@ function App() {
   function resetGame() {
     setGameStatus(0);
     setErrorCell(undefined);
-    if (Number.isInteger(Number(heightInput)) && heightInput >= 0 && heightInput <= 50) setHeight(heightInput);
-    if (Number.isInteger(Number(widthInput)) && widthInput >= 0 && widthInput <= 50) setWidth(widthInput);
+    if (Number.isInteger(Number(heightInput)) && heightInput >= 3 && heightInput <= 50) setHeight(heightInput);
+    if (Number.isInteger(Number(widthInput)) && widthInput >= 3 && widthInput <= 50) setWidth(widthInput);
     if (Number.isInteger(Number(minecountInput)) && minecountInput >= 0 && minecountInput <= height * width * 0.9) setMinecount(minecountInput);
     setGrid(Array.apply(0, Array(width * height)));
     setCellState(Array.apply(0, Array(width * height)));
