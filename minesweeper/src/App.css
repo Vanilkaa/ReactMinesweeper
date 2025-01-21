@@ -33,10 +33,95 @@
   }
 }
 
-.card {
-  padding: 2em;
-}
-
 .read-the-docs {
   color: #888;
+}
+
+.board {
+  display: grid;
+  gap: 1px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel {
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: large;
+  font-weight: 800;
+}
+
+.settings {
+  display: flex;
+  gap: 4px;
+}
+
+input {
+  outline: none;
+  border: none;
+  width: 100px;
+  background-color: #1a1a1a;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+div.input:hover {
+  border-color: #646cff;
+  transition: border-color 0.25s;
+
+}
+
+
+div.input {
+  margin-top: 8px;
+  width: 33%;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 0.6em;
+  font-size: 1em;
+  font-weight: 800;
+  font-size: large;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  display: flex;
+}
+
+label {
+  margin-right: 8px;
+  width: 1.5em;
+  height: 1.5em;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+label.height {
+  background-image: url('./assets/height.png');
+}
+
+label.width {
+  background-image: url('./assets/width.png');
+}
+
+label.minecount {
+  background-image: url('./assets/bomb.png');
+}
+
+.error {
+  background-color: #543738;
+}
+
+.bomb {
+  background-color: #242b31;
 }
