@@ -59,6 +59,10 @@
   font-weight: 800;
 }
 
+.mines, .status, .time {
+  width: 4em;
+}
+
 .settings {
   display: flex;
   gap: 4px;
