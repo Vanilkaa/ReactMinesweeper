@@ -93,6 +93,8 @@ function App() {
   }
 
   function handleButton (index) {
+    if (cellState[index] == 2) return;
+
     if (cellState[index] == undefined && grid[index] == 9) {
       setErrorCell(index);
     }

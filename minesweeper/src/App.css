@@ -61,6 +61,7 @@
 
 .mines, .status, .time {
   width: 4em;
+  color: #fff;
 }
 
 .settings {
@@ -70,6 +71,7 @@
 
 input {
   outline: none;
+  color: #fff;
   border: none;
   width: 100px;
   background-color: #1a1a1a;
@@ -102,6 +104,7 @@ div.input {
 }
 
 label {
+  color: #fff;
   margin-right: 8px;
   width: 1.5em;
   height: 1.5em;
